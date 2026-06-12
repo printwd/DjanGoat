@@ -1,0 +1,10 @@
+name: "DjanGoat CodeQL config"
+
+queries:
+  - uses: security-and-quality
+
+paths-ignore:
+  - .venv
+  - venv
+  - '**/__pycache__'
+  - docs
