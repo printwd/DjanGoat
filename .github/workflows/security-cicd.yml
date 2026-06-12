@@ -15,18 +15,15 @@ jobs:
   smoke-test:
     name: Smoke Test
     runs-on: ubuntu-22.04
+    container: python:2.7-buster
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.7'
-
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade "pip<24" setuptools wheel
+          python --version
+          python -m pip install --upgrade "pip<21" "setuptools<45" "wheel<0.38"
           pip install --use-deprecated=legacy-resolver -r requirements.txt
 
       - name: Run Django tests
